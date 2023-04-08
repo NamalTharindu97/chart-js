@@ -1,0 +1,12 @@
+.chart-container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.class-bar {
+  width: 100%;
+}
+.class-pie {
+  width: 50%;
+}
