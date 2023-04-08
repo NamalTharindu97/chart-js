@@ -1,7 +1,11 @@
+import PieChart from "./Components/PieChart/PieChart";
+
 function App() {
   return (
     <div className="App">
-      <div>hello</div>
+      <div>
+        <PieChart />
+      </div>
     </div>
   );
 }

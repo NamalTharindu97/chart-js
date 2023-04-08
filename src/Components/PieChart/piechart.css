@@ -1,0 +1,11 @@
+.piechart {
+  display: flex;
+  height: 30%;
+  width: 30%;
+}
+
+.chart {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
