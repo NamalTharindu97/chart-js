@@ -37,7 +37,7 @@ function App() {
         <h2>User Information</h2>
         <p>Name: {data.name}</p>
         <p>Age: {data.age}</p>
-        <ConfirmMessage handleUserButtonClick={handleDeleteUser} />
+        <ConfirmMessage handleDeleteUser={handleDeleteUser} />
       </div>
     </div>
   );
