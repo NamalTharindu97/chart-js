@@ -13,3 +13,9 @@
 .inner-conteriner-line {
   width: 50%;
 }
+.inner-container-scatterplot {
+  width: 50%;
+}
+.container-2 {
+  display: flex;
+}
