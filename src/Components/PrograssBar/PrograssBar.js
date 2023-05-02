@@ -21,8 +21,8 @@ const TextAnimation = () => {
 			<AnimatedProgressProvider
 				valueStart={0}
 				valueEnd={percentage}
-				duration={3}
-				interval={10}
+				duration={5}
+				interval={20}
 				easingFunction={easeBounceInOut}
 				width={100}
 				height={100}
@@ -32,16 +32,18 @@ const TextAnimation = () => {
 					<CircularProgressbar
 						value={value}
 						text={`${Math.round(value)}%`}
-						styles={buildStyles({
-							strokeLinecap: "butt",
-							pathTransition: "none",
-							textSize: "30px",
-							textColor: "black",
-							pathColor: `rgba(62, 152, 199, ${value / 100})`,
-							trailColor: "#d6d6d6",
-							backgroundColor: "#3e98c7",
-							pathTransitionDuration: 100,
-						})}
+						styles={{
+							path: {
+								// Path color
+								stroke: `rgba(62, 152, 199, ${
+									percentage / 100
+								})`,
+								// Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
+								strokeLinecap: "butt",
+								// Customize transition animation
+								transition: "stroke-dashoffset 1.5s ease 0s",
+							},
+						}}
 					/>
 				)}
 			</AnimatedProgressProvider>
