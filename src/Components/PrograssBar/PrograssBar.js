@@ -3,7 +3,7 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
 // Animation
-import { easeQuadInOut } from "d3-ease";
+import { easeElasticIn } from "d3-ease";
 import { easeLinear } from "d3-ease";
 import { easeQuadIn } from "d3-ease";
 import { easeQuadOut } from "d3-ease";
@@ -13,35 +13,44 @@ import { easeSinOut } from "d3-ease";
 import AnimatedProgressProvider from "./AnimatedProgressProvider";
 import ChangingProgressProvider from "./ChangingProgressProvider";
 
-const percentage = 70;
+const count = 12;
 
 const TextAnimation = () => {
 	return (
 		<div>
 			<AnimatedProgressProvider
 				valueStart={0}
-				valueEnd={percentage}
-				duration={5}
-				interval={20}
-				easingFunction={easeBounceInOut}
-				width={100}
-				height={100}
+				valueEnd={count}
+				duration={10}
+				easingFunction={easeElasticIn}
 				repeat
 			>
 				{(value) => (
 					<CircularProgressbar
 						value={value}
-						text={`${Math.round(value)}%`}
+						maxValue={20}
+						text={`${Math.round(value)}`}
 						styles={{
 							path: {
 								// Path color
-								stroke: `rgba(62, 152, 199, ${
-									percentage / 100
-								})`,
+								stroke: "#1EFF00",
+								// Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
+								strokeLinecap: "round",
+								// Customize transition animation
+								transition: "stroke-dashoffset 5.0s ease 0s",
+							},
+							// Customize the circle behind the path, i.e. the "total progress"
+							trail: {
+								// Trail color
+								stroke: "#000000",
 								// Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
 								strokeLinecap: "butt",
-								// Customize transition animation
-								transition: "stroke-dashoffset 1.5s ease 0s",
+								// Rotate the trail
+							},
+							// Customize the text
+							text: {
+								fill: "#0DFF00",
+								fontSize: "16px",
 							},
 						}}
 					/>
